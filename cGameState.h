@@ -9,15 +9,15 @@
 class cGameState
 {
   public:
-    virtual void Init();
-    virtual void Cleanup();
+    virtual void Init() = 0;
+    virtual void Cleanup() = 0;
 
-    virtual void Pause();
-    virtual void Resume();
+    virtual void Pause() = 0;
+    virtual void Resume() = 0;
 
-    virtual void HandleEvents(cGameEngine* game);
-    virtual void Update(cGameEngine* game);
-    virtual void Draw(cGameEngine* game);
+    virtual void HandleEvents(cGameEngine* game) = 0;
+    virtual void Update(cGameEngine* game) = 0;
+    virtual void Draw(cGameEngine* game) = 0;
 
     void ChangeState(cGameEngine* game, cGameState* state)
     {

@@ -33,17 +33,25 @@ void cTitleState::Resume()
     printf("cTitleState Resume\n");
 }
 
-void cIntroState::HandleEvents(cGameEngine* game)
+void cTitleState::HandleEvents(cGameEngine* game)
+{
+    SDL_Event e;
+    while( SDL_PollEvent(&e) != 0)
+    {
+        if( e.type == SDL_QUIT )
+        {
+            game->Quit();
+        }
+    }
+}
+
+void cTitleState::Update(cGameEngine* game)
 {
 }
 
-void cIntroState::Update(cGameEngine* game)
+void cTitleState::Draw(cGameEngine* game)
 {
-}
-
-void cIntroState::Draw(cGameEngine* game)
-{
-    SDL_BlitSurface( background, NULL, game->screen, NULL);
+    SDL_BlitSurface( background, NULL, SDL_GetWindowSurface(game->screen), NULL);
     SDL_UpdateWindowSurface(game->screen);
 
 }

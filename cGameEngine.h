@@ -7,12 +7,12 @@
 #include "SDL.h"
 #include <stack>
 
-class CGameState;
+class cGameState;
 
 class cGameEngine
 {
 public:
-    void Init();
+    void Init(const char* title, unsigned int width, unsigned int height);
     void Cleanup();
 
     void ChangeState(cGameState* state);
@@ -29,7 +29,7 @@ public:
     SDL_Window* screen;
 
 private:
-    std::stackr<cGameState*> states;
+    std::stack<cGameState*> states;
 
     bool m_running;
 };

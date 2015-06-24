@@ -2,7 +2,7 @@
 // cGameEngine.cpp
 
 #include <stdio.h>
-#include "SDL.h"
+#include <SDL.h>
 #include "cGameEngine.h"
 #include "cGameState.h"
 
@@ -77,5 +77,5 @@ void cGameEngine::Update()
 
 void cGameEngine::Draw()
 {
-    states.back()->Draw(this);
+    states.top()->Draw(this);
 }
